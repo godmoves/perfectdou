@@ -1,32 +1,24 @@
-# [NeurIPS 2022] Dominating DouDizhu with Perfect Information Distillation
+# [NeurIPS 2022] PerfectDou: Dominating DouDizhu with Perfect Information Distillation
+The official repo for the NeurIPS 2022 paper <PerfectDou: Dominating DouDizhu with Perfect Information Distillation>.
 
+**Note: Due to business conflict, we only realease our pretrained model and the evaluation code. The training code is currently unvailable. We will inform you at the first time once we decide to open source our training code.**
+  
+## An online demo to play with! Have fun!
+* Online Demo: [https://outer-perfectdou-demo-gzailab.nie.netease.com](https://outer-perfectdou-demo-gzailab.nie.netease.com)
 
-PerfectDou is a new DouDizhu
-AI system for the game [DouDizhu](https://en.wikipedia.org/wiki/Dou_dizhu) ([斗地主](https://baike.baidu.com/item/%E6%96%97%E5%9C%B0%E4%B8%BB/177997)) developed by **Netease Games AI Lab** with **Shanghai Jiao Tong University** and **Carnegie Mellon University**. 
+## About PerfectDou
 
-The proposed technique named perfect information distillation (a perfect-training-imperfect-execution
-framework) allows the agents to utilize the
-global information to guide the training of the
-policies as if it is a perfect information game and the trained policies can be used to play the imperfect information game during the actual gameplay.  
+PerfectDou is current the state-of-the-art DouDizhu AI system for the game of [DouDizhu](https://en.wikipedia.org/wiki/Dou_dizhu) ([斗地主](https://baike.baidu.com/item/%E6%96%97%E5%9C%B0%E4%B8%BB/177997)) developed by **Netease Games AI Lab**, with **Shanghai Jiao Tong University** and **Carnegie Mellon University**. 
 
-In experiments of the paper, we show how and why
-PerfectDou beats all existing AI programs, and
-achieves state-of-the-art performance.
+The proposed technique named perfect information distillation (a perfect-training-imperfect-execution framework) allows the agents to utilize the global information to guide the training of the policies as if it is a perfect information game and the trained policies can be used to play the imperfect information game during the actual gameplay.  
 
 <img width="500" src="images/result.jpg" alt="result" />
-  
-  
-More deatails could be founded in our paper and an online demo is also provided. 
+
+For more details, please check our [paper](https://arxiv.org/abs/2203.16406), where we show how and why PerfectDou beats all existing AI programs, and achieves state-of-the-art performance.
 *   Paper: [https://arxiv.org/abs/2203.16406](https://arxiv.org/abs/2203.16406) 
-*   Related Project: [RLCard Project](https://github.com/datamllab/rlcard), [DouZero Project](https://github.com/kwai/DouZero)
-  
 
-## Online Demo
-An online demo is provided for playing, this demo is largely based on [RLCard-Showdown](https://github.com/datamllab/rlcard-showdown)
-* Online Demo: [https://outer-perfectdou-demo-gzailab.nie.netease.com](https://outer-perfectdou-demo-gzailab.nie.netease.com)
+
 ## Cite this Work
-
-Guan, Yang, et al. "Dominating DouDizhu with Perfect Information Distillation" NeurIPS 2022.
 
 ```bibtex
 @inproceedings{guan2022perfectdou,
@@ -37,8 +29,16 @@ Guan, Yang, et al. "Dominating DouDizhu with Perfect Information Distillation" N
 }
 ```
 
-## Installation
+## Evaluation Pipeline
+The pre-trained model is provided in `perfectdou/model/`. For the convenience of comparison, the game environment and evaluation methods are the same as those in [DouZero](https://github.com/kwai/DouZero/tree/main/douzero/evaluation).
+  
+Some pre-trained models and heuristics as baselines have also been provided:
+*   [random](douzero/evaluation/random_agent.py): agents that play randomly (uniformly)
+*   [rlcard](douzero/evaluation/rlcard_agent.py): the rule-based agent in [RLCard](https://github.com/datamllab/rlcard)
+*   [DouZero](https://github.com/kwai/DouZero): the ADP (Average Difference Points) version
+*  PerfectDou: the 2.5e9 frames version in the paper
 
+### Step 0: Ready for Prerequisite
 
 First, clone the repo 
 ```
@@ -49,15 +49,6 @@ Make sure you have python 3.7 installed and then install dependencies:
 cd PerfectDou
 pip3 install -r requirements.txt
 ```
-
-## Evaluation
-The pre-trained model is provided in `perfectdou/model/`. For the convenience of comparison, the game environment and evaluation methods are the same as those in [DouZero](https://github.com/kwai/DouZero/tree/main/douzero/evaluation).
-  
-Some pre-trained models and heuristics as baselines have also been provided:
-*   [random](douzero/evaluation/random_agent.py): agents that play randomly (uniformly)
-*   [rlcard](douzero/evaluation/rlcard_agent.py): the rule-based agent in [RLCard](https://github.com/datamllab/rlcard)
-*   [DouZero](https://github.com/kwai/DouZero): the ADP (Average Difference Points) version
-*  PerfectDou: the 2.5e9 frames version in the paper
 
 ### Step 1: Generate evaluation data
 ```
@@ -84,13 +75,15 @@ python3 evaluate.py --landlord perfectdou --landlord_up douzero --landlord_down 
 ```
 
 ## Acknowlegements
-*   The demo is largely based on [RLCard-Showdown](https://github.com/datamllab/rlcard-showdown)
-*   Evaluation code and game environment implementation is largely based on [DouZero](https://github.com/kwai/DouZero)
+*   The demo is mainly based on [RLCard-Showdown](https://github.com/datamllab/rlcard-showdown)
+*   Evaluation code and game environment implementation is mainly based on [DouZero](https://github.com/kwai/DouZero)
 
 ## Contact Us
 Please contact us if you have any problems.
   
 yangguan@corp.netease.com
+
+minghuanliu@sjtu.edu.cn
   
 hongweijun@corp.netease.com
 
