@@ -27,6 +27,13 @@ def load_card_play_models(card_play_model_path_dict):
                 position,
                 "perfectdou/model/douzero/douzero_ADP/{}.ckpt".format(position),
             )
+        elif card_play_model_path_dict[position] == "resnet":
+            from .deep_agent import DeepAgent
+
+            players[position] = DeepAgent(
+                position,
+                "perfectdou/model/douzero/resnet/resnet_{}.ckpt".format(position),
+            )
         else:
             from .deep_agent import DeepAgent
 

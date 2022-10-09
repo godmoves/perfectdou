@@ -1,3 +1,4 @@
+import numpy as np
 from copy import deepcopy
 from . import move_detector as md, move_selector as ms
 from .move_generator import MovesGener
@@ -368,3 +369,12 @@ class InfoSet(object):
         self.last_pid = None
         # The number of bombs played so far
         self.bomb_num = None
+
+        # Fixed bid info for resnet model.
+        self.bid_info = np.array([
+            [1,0.5,1],
+            [1,1,1],
+            [1,1,-4],
+            [1,1,1]])
+        # Fixed score info for resnet model.
+        self.multiply_info = [1, 1, 1]
