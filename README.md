@@ -1,11 +1,11 @@
 # Evaluation vs ResNet model
 
 Row player vs Column player.
-|Rank|Name|ResNet|PerfectDou|DouZero|
+|Rank|Name|DouZero ResNet|PerfectDou|DouZero ADP|
 |----|----|------|----------|-------|
-|1|ResNet|-|52.08% (0.124)|57.05% (0.2882)|
+|1|DouZero ResNet|-|52.08% (0.124)|57.05% (0.2882)|
 |2|PerfectDou|47.92% (-0.124)|-|54.72% (0.1661)|
-|3|DouZero|42.95% (-0.2882)|45.28% (-0.1661)|-|
+|3|DouZero ADP|42.95% (-0.2882)|45.28% (-0.1661)|-|
 
 
 ## [NeurIPS 2022] PerfectDou: Dominating DouDizhu with Perfect Information Distillation
